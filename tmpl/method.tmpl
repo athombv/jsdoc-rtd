@@ -11,7 +11,7 @@ var self = this;
 
     <h4 class="name" id="<?js= id ?>">
         <?js= data.attribs + (kind === 'class' ? 'new ' : '') + name + (data.signature || '') ?>
-        <?js if (data.meta.code.node.async) { ?><span class="async">[async]</span><?js } ?>
+        <?js if (data.meta.code.node && data.meta.code.node.async) { ?><span class="async">[async]</span><?js } ?>
         <span class="source">
             <?js= self.linkto(meta.shortpath, '<i class="source fa fa-file-code-o"></i>', null, 'line' + meta.lineno) ?>
         </span>
