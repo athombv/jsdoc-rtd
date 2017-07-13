@@ -325,9 +325,6 @@ function buildSubNavMembers(list, type) {
         html += '<ul class="inner">'
         list.forEach(function(item) {
             html += `<li class="sub-nav-item">${linkto(item.longname, item.name, null, null, true)}`
-            if (item.async) {
-                html += ' <span class="async"> async</span>'
-            }
             html += '</a></li>'
         })
         html += '</ul>'
