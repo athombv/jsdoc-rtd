@@ -31,7 +31,7 @@ nav {
         position: relative;
         overflow-x: hidden;
         overflow-y: scroll;
-        height: calc(100% - 235px);
+        height: calc(100% - 150px);
     }
 
     ul.nav-items {
@@ -45,7 +45,6 @@ nav {
     .nav-main {
         padding-top: 10px;
         text-align: center;
-        height: 50px;
 
         .link {
             color: $grey-color-light-1;
@@ -345,7 +344,7 @@ nav {
             position: relative;
             overflow-x: hidden;
             overflow-y: scroll;
-            height: calc(100% - 235px);
+            height: calc(100% - 150px);
         }
     }
 

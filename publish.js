@@ -398,7 +398,8 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         let makeHtml = env.conf.templates.useCollapsibles ? makeCollapsibleItemHtmlInNav : makeItemHtmlInNav
 
         items.forEach(function(item) {
-            let linkHtml
+            let linkHtml;
+            if(item.memberof) return;
 
             if ( !hasOwnProp.call(item, 'longname') ) {
 
@@ -546,7 +547,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     helper.setTutorials(tutorials)
 
     data = helper.prune(data)
-    data.sort('longname, version, since')
+    //data.sort('longname, version, since')
     helper.addEventListeners(data)
 
     let sourceFiles = {}
