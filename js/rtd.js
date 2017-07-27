@@ -29,11 +29,13 @@ class RTD {
 
         // Targets the current page in the navigation.
         if (isApi) {
-            let longnameSelector = doc.longname.replace(/"|:|./g, '_')
+            let longnameSelector = doc.longname.replace(/[^A-Za-z0-9]/g, '_')
             this.$.selectedApiSubItem = $(`#${longnameSelector}_sub`)
             this.$.selectedApiSubItem.removeClass('hidden')
             let selectedApiItem = this.$.selectedApiSubItem.prev()
             selectedApiItem.addClass('selected')
+            let selectedApiItemParent = this.$.selectedApiSubItem.parent()
+            selectedApiItemParent.removeClass('hidden')
             // Try to position selectedApiItem at the top of the scroll container.
             let navScrollTop = this.$.scroll.get(0).getBoundingClientRect().top
             let navItemTop = selectedApiItem.get(0).getBoundingClientRect().top

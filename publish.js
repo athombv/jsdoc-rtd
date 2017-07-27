@@ -359,21 +359,26 @@ function buildSubNav(obj) {
         kind: 'typedef',
         memberof: longname,
     })
+    let classes = find({
+        kind: 'class',
+        memberof: longname,
+    })
 
-    let html = `<div class="nav-item-sub hidden" id="${obj.longname.replace(/"|:|./g, '_')}_sub">`
+    let html = `<div class="nav-item-sub hidden" id="${obj.longname.replace(/[^a-zA-Z0-9]/g, '_')}_sub">`
 
     html += buildSubNavMembers(members, 'Members')
     html += buildSubNavMembers(methods, 'Methods')
     html += buildSubNavMembers(events, 'Events')
     html += buildSubNavMembers(typedef, 'Typedef')
+    html += buildSubNavMembers(classes, 'Classes')
     html += '</div>'
 
     return html
 }
 
 
-function makeCollapsibleItemHtmlInNav(item, linkHtml) {
-    return `<li class="nav-item">
+function makeCollapsibleItemHtmlInNav(item, linkHtml, hide) {
+    return `<li class="nav-item${hide?' hidden':''}">
                 <span class="toggle-subnav invisible btn btn-link fa fa-plus"></span>
                 ${linkHtml}
                 ${buildSubNav(item)}
@@ -381,8 +386,8 @@ function makeCollapsibleItemHtmlInNav(item, linkHtml) {
 }
 
 
-function makeItemHtmlInNav(item, linkHtml) {
-    return `<li>${linkHtml}${buildSubNav(item)}</li>`
+function makeItemHtmlInNav(item, linkHtml, hide) {
+    return `<li class="${hide?' hidden':''}">${linkHtml}${buildSubNav(item)}</li>`
 }
 
 
@@ -396,7 +401,6 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
 
         items.forEach(function(item) {
             let linkHtml;
-            if(item.memberof) return;
 
             if ( !hasOwnProp.call(item, 'longname') ) {
 
@@ -409,7 +413,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                     displayName = item.name
                 }
                 linkHtml = linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''))
-                itemsNav += makeHtml(item, linkHtml)
+                itemsNav += makeHtml(item, linkHtml, !!item.memberof)
             }
         })
 
