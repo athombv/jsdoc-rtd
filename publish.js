@@ -19,7 +19,7 @@ const resolveAuthorLinks = helper.resolveAuthorLinks
 const hasOwnProp = Object.prototype.hasOwnProperty
 const linkto = function(item, name, c,d,e) {
     name = name || item.name;
-    name = name.replace(/(^")|("$)/g,'');
+    if(name) name = name.replace(/(^")|("$)/g,'');
     return helper.linkto(item, name, c,d,e);
 }
 
