@@ -10,19 +10,18 @@ var self = this;
     <?js } ?>
 
     <h4 class="name" id="<?js= id ?>">
-        <?js= data.attribs + (kind === 'class' ? 'new ' : '') + name + (data.signature || '') ?>
-        <span class="source">
-            <?js= self.linkto(meta.shortpath, '<i class="source fa fa-file-code-o"></i>', null, 'line' + meta.lineno) ?>
-        </span>
+        <?js= data.attribs + (kind === 'class' ? 'new ' : '') + name.replace(/(^")|("$)/g,'') + (data.signature || '') ?>
+        <?js if (data.meta && self.outputSourceFiles) {?>
+            <span class="source">
+                <?js= self.linkto(meta.shortpath, '<i class="source fa fa-file-code-o"></i>', null, 'line' + meta.lineno) ?>
+            </span>
+        <?js } ?>
     </h4>
 
     <?js if (data.summary) { ?>
     <p class="summary"><?js= summary ?></p>
     <?js } ?>
 
-    <?js if (data.meta && self.outputSourceFiles) {?>
-
-    <?js } ?>
 <?js } ?>
 </dt>
 
