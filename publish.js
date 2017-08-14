@@ -15,15 +15,21 @@ const cheerio = require('cheerio')
 const _ = require('underscore')
 
 const htmlsafe = helper.htmlsafe
-const linkto = helper.linkto
 const resolveAuthorLinks = helper.resolveAuthorLinks
 const hasOwnProp = Object.prototype.hasOwnProperty
+const linkto = function(item, name, c,d,e) {
+    name = name || item.name;
+    name = name.replace(/(^")|("$)/g,'');
+    return helper.linkto(item, name, c,d,e);
+}
+
 
 let data
 let view
 let tutorialsName
 
 let outdir = path.normalize(env.opts.destination)
+
 
 
 env.conf.templates = _.extend({useCollapsibles: true}, env.conf.templates)
@@ -65,9 +71,10 @@ function hashToLink(doclet, hash) {
 function needsSignature(doclet) {
     let needsSig = false
 
+
     // function and class definitions always get a signature
     if (doclet.kind === 'function' || doclet.kind === 'class') {
-        needsSig = true
+        needsSig = !doclet.hideconstructor;
     } else if (doclet.kind === 'typedef' && doclet.type && doclet.type.names && doclet.type.names.length) {
         // typedefs that contain functions get a signature, too
         for (let i = 0, l = doclet.type.names.length; i < l; i++) {

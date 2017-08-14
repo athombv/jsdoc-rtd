@@ -79,30 +79,6 @@
     <?js } ?>
 
     <?js
-        var classes = self.find({kind: 'class', memberof: doc.longname});
-        if (!isGlobalPage && classes && classes.length) {
-    ?>
-        <h3 class="subsection-title">Classes</h3>
-        <?js= self.partial('subsection-default.tmpl', {list: classes}) ?>
-    <?js } ?>
-
-     <?js
-        var mixins = self.find({kind: 'mixin', memberof: doc.longname});
-        if (!isGlobalPage && mixins && mixins.length) {
-    ?>
-        <h3 class="subsection-title">Mixins</h3>
-        <?js= self.partial('subsection-default.tmpl', {list: mixins}) ?>
-    <?js } ?>
-
-    <?js
-        var namespaces = self.find({kind: 'namespace', memberof: doc.longname});
-        if (!isGlobalPage && namespaces && namespaces.length) {
-    ?>
-        <h3 class="subsection-title">Namespaces</h3>
-        <?js= self.partial('subsection-default.tmpl', {list: namespaces}) ?>
-    <?js } ?>
-
-    <?js
         var members = self.find({kind: 'member', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
 
         // symbols that are assigned to module.exports are not globals, even though they're not a memberof anything
@@ -160,6 +136,30 @@
         <dl><?js events.forEach(function(e) { ?>
             <?js= self.partial('method.tmpl', e) ?>
         <?js }); ?></dl>
+    <?js } ?>
+    
+    <?js
+        var classes = self.find({kind: 'class', memberof: doc.longname});
+        if (!isGlobalPage && classes && classes.length) {
+    ?>
+        <h3 class="subsection-title">Classes</h3>
+        <?js= self.partial('subsection-default.tmpl', {list: classes}) ?>
+    <?js } ?>
+
+     <?js
+        var mixins = self.find({kind: 'mixin', memberof: doc.longname});
+        if (!isGlobalPage && mixins && mixins.length) {
+    ?>
+        <h3 class="subsection-title">Mixins</h3>
+        <?js= self.partial('subsection-default.tmpl', {list: mixins}) ?>
+    <?js } ?>
+
+    <?js
+        var namespaces = self.find({kind: 'namespace', memberof: doc.longname});
+        if (!isGlobalPage && namespaces && namespaces.length) {
+    ?>
+        <h3 class="subsection-title">Namespaces</h3>
+        <?js= self.partial('subsection-default.tmpl', {list: namespaces}) ?>
     <?js } ?>
 </article>
 
