@@ -48,7 +48,7 @@
     background-color: rgba(100, 100, 100, 0.9);
     z-index: 10000; }
   .nav-search ul.searched-list {
-    margin-top: 15px; }
+    margin-top: 10px; }
     .nav-search ul.searched-list li {
       text-align: left;
       width: 100%;
