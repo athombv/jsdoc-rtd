@@ -136,7 +136,7 @@ nav {
     line-height: 18px;
     padding: .2rem;
     padding-left: 1.5rem;
-    color: #b3b3b3;
+    color: #343131;
     display: block; }
   nav .nav-item a.selected,
   nav .nav-item a.selected:hover {
@@ -179,7 +179,7 @@ nav {
     left: 2px; }
     nav span.toggle-subnav:hover {
       outline: 0;
-      color: #d6d6d6;
+      color: #343131;
       cursor: hand; }
   nav .version {
     color: #aaa; }

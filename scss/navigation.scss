@@ -97,7 +97,7 @@ nav {
             line-height: 18px;
             padding: .2rem;
             padding-left: 1.5rem;
-            color: #b3b3b3;
+            color: $grey-color-dark-1;
             display: block;
         }
 
@@ -168,7 +168,7 @@ nav {
 
         &:hover {
             outline: 0;
-            color: $grey-color-light-1;
+            color: $grey-color-dark-1;
             cursor: hand;
         }
     }
