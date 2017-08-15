@@ -85,7 +85,7 @@ nav {
   overflow-x: hidden;
   overflow-y: hidden;
   min-height: 100%;
-  background: #343131;
+  background: #CCCCCC;
   z-index: 200; }
   nav > * {
     user-select: none; }
@@ -109,7 +109,7 @@ nav {
     padding-top: 10px;
     text-align: center; }
     nav .nav-main .link {
-      color: #d6d6d6; }
+      color: #343131; }
   nav h3 {
     line-height: 1.5rem;
     color: #555;
@@ -125,7 +125,7 @@ nav {
       display: inline-block;
       padding: 0.5rem; }
       nav .nav-tab li.selected a h4 {
-        color: #d6d6d6; }
+        color: #343131; }
   nav .nav-api h3 {
     font-size: 0.85rem;
     margin: .5rem 0.4rem; }
@@ -144,7 +144,7 @@ nav {
     color: #343131;
     font-weight: bold; }
   nav .nav-item a:hover {
-    background: #4e4a4a; }
+    background: #eee; }
   nav .nav-item span.fa-minus + a:not(.selected) {
     background: #d6d6d6;
     color: #343131;

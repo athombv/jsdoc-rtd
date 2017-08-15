@@ -9,7 +9,7 @@ nav {
     overflow-x: hidden;
     overflow-y: hidden;
     min-height: 100%;
-    background: #343131;
+    background: #CCCCCC;
     z-index: 200;
 
     > * {
@@ -47,7 +47,7 @@ nav {
         text-align: center;
 
         .link {
-            color: $grey-color-light-1;
+            color: $grey-color-dark-1;
         }
     }
 
@@ -73,7 +73,7 @@ nav {
 
             &.selected {
                 a h4 {
-                    color: $grey-color-light-1;
+                    color: $grey-color-dark-1;
                 }
             }
         }
@@ -110,7 +110,7 @@ nav {
         }
 
         a:hover {
-            background: $grey-color-dark-2;
+            background: $grey-color-light-2;
         }
 
         // Submenu is collapsed; not the selected one.
