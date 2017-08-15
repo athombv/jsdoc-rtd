@@ -48,7 +48,7 @@
         <?js doc.modules.forEach(function(module) { ?>
             <?js= self.partial('method.tmpl', module) ?>
         <?js }) ?>
-    <?js } else if (doc.kind === 'class') { ?>
+    <?js } else if (doc.kind === 'class' && !doc.hideconstructor) { ?>
         <?js= self.partial('method.tmpl', doc) ?>
     <?js } else { ?>
         <?js if (doc.description) { ?>
