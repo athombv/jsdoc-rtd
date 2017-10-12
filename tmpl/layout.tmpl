@@ -112,5 +112,10 @@ window.isManual = true
 <?js } ?>
 </script>
 <script src="js/index.js"></script>
+<script type="text/javascript">window.parent.postMessage({
+	url: window.location.href,
+	path: window.location.pathname
+}, '*')
+</script>
 </body>
 </html>
