@@ -602,14 +602,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     fs.mkPath(outdir)
 
     // Copy the template's static files to outdir.
-    let fromDir = path.join(templatePath, 'static')
-    let staticFiles = fs.ls(fromDir, 3)
-
-    staticFiles.forEach(function(fileName) {
-        let toDir = fs.toDir(fileName.replace(fromDir, outdir))
-        fs.mkPath(toDir)
-        fs.copyFileSync(fileName, toDir)
-    })
+    copyRecursiveSync(path.join(templatePath, 'static'), outdir);
 
     // Copy user-specified static files to outdir.
     let staticFilePaths
