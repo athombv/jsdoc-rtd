@@ -656,3 +656,8 @@ dd {
 .container-returns h5,
 .container-params h5 {
   margin: 1.5rem 0 0.3rem 0; }
+
+.copyable {
+    cursor: url(../img/copy.png), copy;
+    cursor: -webkit-image-set(url(../img/copy@2x.png) 2x, url(../img/copy.png) 1x), url(../img/copy.png), copy !important;
+}
