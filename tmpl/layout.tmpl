@@ -114,8 +114,23 @@ window.isManual = true
 <script src="js/index.js"></script>
 <script type="text/javascript">window.parent.postMessage({
 	url: window.location.href,
-	path: window.location.pathname
-}, '*')
+	path: window.location.pathname + window.location.hash
+}, '*');
+$(window).on('hashchange',function(){ 
+    window.parent.postMessage({
+    	url: window.location.href,
+    	path: window.location.pathname + window.location.hash
+    }, '*');
+});
+function loadClipboard() {
+    new Clipboard('pre',{
+        target: function(trigger) {
+            return trigger;
+        }
+    });
+    $('pre').css('cursor', 'copy');
+};
 </script>
+<script onload="loadClipboard();" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" async></script>
 </body>
 </html>
